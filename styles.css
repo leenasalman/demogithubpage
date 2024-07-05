@@ -13,6 +13,8 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -47,4 +49,42 @@ p {
 .social-icons img {
     width: 40px;
     height: 40px;
+}
+
+.navigation {
+    margin-top: 20px;
+}
+
+.navigation a {
+    color: #76D7B8;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.navigation a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+
+    .navigation a {
+        margin: 5px 0;
+    }
 }
