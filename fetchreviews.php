@@ -1,4 +1,3 @@
-<?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
@@ -8,4 +7,3 @@ $url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeI
 
 $response = file_get_contents($url);
 echo $response;
-?>
