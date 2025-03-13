@@ -9,58 +9,6 @@
     <div>
         <h1>Stay in touch: <a href="mailto:info@wordpressinarabic.com">info@wordpressinarabic.com</a></h1>
     </div>
-    <script>
-        // Function to fetch reviews using Google Places API
-function fetchReviews() {
-  const placeId = 'ChIJXdA7Y5FpXz4Rl0MVSjKjx9U'; 
-  const apiKey = 'AIzaSyAc8Fqi3CmcAtNjKCNKTYve_eY9zjx2nGU'; 
 
-  // Construct the URL for the request
-  const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&fields=reviews&key=${apiKey}`;
-
-  // Make the request using fetch API
-  fetch(url)
-    .then(response => response.json()) // Parse the response as JSON
-    .then(data => {
-      // Check if reviews exist in the response
-      if (data.result && data.result.reviews) {
-        displayReviews(data.result.reviews); // Call the function to display reviews
-      } else {
-        console.log('No reviews found.');
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
-}
-
-// Function to display reviews
-function displayReviews(reviews) {
-  const reviewsContainer = document.getElementById('reviews-container'); // Assume you have a container to show reviews
-
-  // Clear any previous content
-  reviewsContainer.innerHTML = '';
-
-  // Loop through the reviews and display each one
-  reviews.forEach(review => {
-    const reviewElement = document.createElement('div');
-    reviewElement.classList.add('review');
-    
-    // Displaying review details
-    reviewElement.innerHTML = `
-      <h3>${review.author_name}</h3>
-      <p>Rating: ${review.rating}</p>
-      <p>${review.text}</p>
-      <p><small>Time: ${new Date(review.time * 1000).toLocaleString()}</small></p>
-    `;
-    
-    reviewsContainer.appendChild(reviewElement); // Add the review to the container
-  });
-}
-
-// Call the function to fetch reviews
-fetchReviews();
-
-    </script>
 </body>
 </html>
